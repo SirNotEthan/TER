@@ -6,7 +6,7 @@ module.exports = {
         .setDescription('sus'),
     async execute(interaction) {
         // Check if the user is the bot owner
-        const botOwnerID = 'YOUR_BOT_OWNER_USER_ID'; // Replace this with your bot owner's user ID
+        const botOwnerID = '959555371385622590'; // Replace this with your bot owner's user ID
         if (interaction.user.id !== botOwnerID) {
             return interaction.reply({ content: 'This command can only be used by the bot owner.', ephemeral: true });
         }
