@@ -24,7 +24,7 @@ module.exports = {
                 }
             }   
         } else if (interaction.isButton()) {
-            console.log('Hello World')
+            console.log('Button Pressed')
         } else if (interaction.isModalSubmit()) {
             if (interaction.customId === 'CreateCrimeReportModal') {
                 const reasonValue = interaction.fields.getTextInputValue('reasonInput');
@@ -32,10 +32,10 @@ module.exports = {
                 const evidenceValue = interaction.fields.getTextInputValue('evidenceInput');
 
 
-                const ConfirmationEmbed = new EmbedBuilder()
-                    .setTitle('Crime Report Confirmation')
+                const ReportEmbed = new EmbedBuilder()
+                    .setTitle('Crime Reported!')
                     .setColor('Orange')
-                    .setDescription('The following information will be submitted.')
+                    .setDescription('The following information has been submitted.')
                     .addFields(
                         { name: 'Author:', value: `<@${interaction.user.id}> (${interaction.user.id})` },
                         { name: 'Suspect:', value: `${usernameValue}` },
@@ -44,43 +44,9 @@ module.exports = {
                     )
                     .setTimestamp();
 
-                const CrimeConfirmationButton = new ButtonBuilder()
-                    .setLabel('Confirm')
-                    .setCustomId('CrimeConfirmationButton')
-                    .setStyle(ButtonStyle.Success);
-
-                const CrimeCancelButton = new ButtonBuilder()
-                    .setLabel('Cancel')
-                    .setCustomId('CrimeCancelButton')
-                    .setStyle(ButtonStyle.Danger);
-
-                const ConfirmationRow = new ActionRowBuilder()
-                    .addComponents(CrimeConfirmationButton, CrimeCancelButton);
-
-                await interaction.reply({ embeds: [ConfirmationEmbed], components: [ConfirmationRow] });
-            }
-
-            if (interaction.isButton()) {
-                if (interaction.customId === "CrimeConfirmationButton") {
-                    const CrimeSuccessEmbed = new EmbedBuilder()
-                        .setTitle('Crime Reported!')
-                        .setColor('Green')
-                        .setDescription('Your Crime was successfully reported')
-                        .setTimestamp();
-    
-                    await interaction.message.edit({ embeds: [CrimeSuccessEmbed], components: [] });
-    
-                    const CrimeReportChannel = interaction.client.channels.cache.get('1205608307822297209'); 
-                    await CrimeReportChannel.send({ embeds: [ConfirmationEmbed] });
-                } else if (interaction.customId === "CrimeCancelButton") {
-                    const CrimeCancelledEmbed = new EmbedBuilder()
-                        .setTitle('Crime Report Cancelled')
-                        .setColor('Red')
-                        .setDescription('Your Crime Report was not submitted.')
-                        .setTimestamp();
-    
-                    await interaction.message.edit({ embeds: [CrimeCancelledEmbed], components: [] });
-                }
+                const CrimeReportChannel = interaction.client.channels.cache.get('1205608307822297209'); 
+                await CrimeReportChannel.send({ embeds: [ReportEmbed] });
+                return interaction.editReply({ embeds: [ReportEmbed], ephemeral: true })
             }
         }
     }
