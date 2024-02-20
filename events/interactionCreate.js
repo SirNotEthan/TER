@@ -70,7 +70,7 @@ module.exports = {
     
                     await interaction.message.edit({ embeds: [CrimeSuccessEmbed], components: [] });
     
-                    const CrimeReportChannel = interaction.client.channels.cache.get('1208214310451675210'); 
+                    const CrimeReportChannel = interaction.client.channels.cache.get('1205608307822297209'); 
                     await CrimeReportChannel.send({ embeds: [ConfirmationEmbed] });
                 } else if (interaction.customId === "CrimeCancelButton") {
                     const CrimeCancelledEmbed = new EmbedBuilder()

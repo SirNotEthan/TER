@@ -7,6 +7,17 @@ module.exports = {
     async execute(interaction) {
         await interaction.deferReply()
 
+        const LogsEmbed = new EmbedBuilder()
+            .setTitle('Crime Report command was ran.')
+            .addFields(
+                { name: 'User', value: `${interaction.user.username}` },
+                { name: 'UserID', value: `${interaction.user.id}` }
+            )
+            .setTimestamp()
+
+        const Loggingchannel = client.channels.cache.get('1200946142498799667'); 
+        Loggingchannel.send({ embeds: [LogsEmbed] });
+
         try {
             const CreateReport = new ButtonBuilder()
             .setLabel('Create Report')
