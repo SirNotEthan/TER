@@ -38,7 +38,7 @@ module.exports = {
             { name: 'Latency:', value: `${Date.now() - interaction.createdTimestamp}ms`, inline: true },
             { name: 'API Latency:', value: `${interaction.client.ws.ping}ms`, inline: true },
             { name: 'Uptime:', value: `${formatUptime(uptime)}`, inline: true },
-            { name: 'Version:', value: `${Version(version)}`, inline: true },
+            { name: 'Version:', value: `1.0.2`, inline: true },
             { name: 'MongoDB:', value: 'Operational', inline: true },
             { name: 'Creator:', value: 'SirNotEthan', inline: true }
         )
