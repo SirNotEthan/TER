@@ -46,7 +46,7 @@ module.exports = {
 
                 const CrimeReportChannel = interaction.client.channels.cache.get('1205608307822297209'); 
                 await CrimeReportChannel.send({ embeds: [ReportEmbed] });
-                return interaction.editReply({ embeds: [ReportEmbed], ephemeral: true })
+                return interaction.reply({ embeds: [ReportEmbed], ephemeral: true })
             }
         }
     }

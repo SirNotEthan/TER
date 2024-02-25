@@ -15,7 +15,7 @@ module.exports = {
             )
             .setTimestamp()
 
-        const Loggingchannel = client.channels.cache.get('1200946142498799667'); 
+        const Loggingchannel = interaction.client.channels.cache.get('1200946142498799667'); 
         Loggingchannel.send({ embeds: [LogsEmbed] });
 
         try {
