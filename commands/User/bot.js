@@ -44,6 +44,6 @@ module.exports = {
         )
         .setTimestamp()
 
-        return interaction.editReply({ embeds: [InformationEmbed]});
+        return interaction.editReply({ embeds: [InformationEmbed], epehermal: true });
     }
 }

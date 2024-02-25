@@ -64,6 +64,6 @@ module.exports = {
         const ArrestLogChannel2 = interaction.client.channels.cache.get('1208798374950604912')
         ArrestLogChannel1.send({ embeds: [ArrestEmbed] })
         ArrestLogChannel2.send({ embeds: [ArrestEmbed] })
-        return interaction.editReply({ content: 'Your arrest was logged!', ephemeral: true })
+        return interaction.editReply({ content: 'Your arrest was logged!', epehermal: true })
     }
 }

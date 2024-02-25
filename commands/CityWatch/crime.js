@@ -32,7 +32,7 @@ module.exports = {
             const StartRow = new ActionRowBuilder()
             .addComponents(CreateReport, ViewReport)
 
-            await interaction.editReply({ content: " ", components: [StartRow], ephemeral: true })
+            await interaction.editReply({ content: " ", components: [StartRow], epehermal: true })
         } catch (err) {
             console.log('Error Occurred: ', err)
         }

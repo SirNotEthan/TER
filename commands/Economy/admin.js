@@ -55,7 +55,7 @@ module.exports = {
     ),
     async execute(interaction) {
        await interaction.deferReply()
-       const subcommands = interaction.options.getSubcommand();
+       const subcommands = interaction.options.getSubcommands();
        const amount = interaction.options.getInteger('amount');
        const user = interaction.options.getUser('user');
        const house = interaction.options.getRole('house');

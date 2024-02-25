@@ -40,6 +40,7 @@ const houses = [
     "1181369635321417768",
     "1182454899804491937"
 ]
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('income')
