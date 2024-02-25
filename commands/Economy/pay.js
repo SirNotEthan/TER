@@ -6,34 +6,34 @@ module.exports = {
     data: new SlashCommandBuilder()
     .setName('pay')
     .setDescription('Pay a House or User.')
-    .setSubcommand((subcommand) => subcommand 
+    .addSubcommand((subcommand) => subcommand 
         .setName('house')
         .setDescription('Pay a house a certain amount of money.')
-        .setRoleOption((option) => option
+        .addRoleOption((option) => option
             .setName('your-house')
             .setDescription('The house sending the money')
             .setRequired(true)
         )
-        .setRoleOption((option) => option
+        .addRoleOption((option) => option
             .setName('target-house')
             .setDescription('The house to pay')
             .setRequired(true)
         )
-        .setNumberOption((option) => option
+        .addNumberOption((option) => option
             .setName('amount')
             .setDescription('Amount to pay the House')
             .setRequired(true)
         )
     )
-    .setSubcommand((subcommand) => subcommand
+    .addSubcommand((subcommand) => subcommand
         .setName('user')
         .setDescription('The user to pay')
-        .setUserOption((option) => option
+        .addUserOption((option) => option
             .setName('target')
             .setDescription('The user to pay')
             .setRequired(true)
         )
-        .setNumberOption((option) => option
+        .addNumberOption((option) => option
             .setName('amount')
             .setDescription('The amount to pay user')
             .setRequired(true)
