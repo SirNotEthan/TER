@@ -81,7 +81,6 @@ module.exports = {
             const mainCollector = interaction.channel.createMessageComponentCollector({ filter: mainFilter, time: 15000 });
             mainCollector.on('collect', async (interaction) => {
                 if (interaction.customId === 'payoutHouse') {
-                    await interaction.deferUpdate();
                     const existingHouseProfile = await HouseProfile.findOne({ HouseLord: interaction.user.id })   
                     const existingIncomeUpgrades = await IncomeUpgrades.findOne({ UserID: interaction.user.id })        
                     const cooldowns = await Cooldowns.findOne({ UserID: interaction.user.id })
@@ -138,8 +137,8 @@ module.exports = {
                             return interaction.editReply({ embeds: [ErrPayoutEmbed], components: [] })
                         }
                     }
-                } else if (interaction.customId === 'payoutUser') {
-                    await interaction.deferUpdate();
+                } else if (interaction.customId === 'payoutUser') {;l
+                    
                     const existingProfile = await Profile.findOne({ UserID: interaction.user.id })
                     const cooldowns = await Cooldowns.findOne({ UserID: interaction.user.id })
                     const existingIncomeUpgrades = await IncomeUpgrades.findOne({ UserID: interaction.user.id })   
