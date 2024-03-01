@@ -5,6 +5,11 @@ module.exports = {
         .setName('order')
         .setDescription('Make a new order'),
     async execute(interaction) {
+
+        if (!interaction.member.roles.cache.some(role => role.id === '1180473978586931300')) {
+            return interaction.reply({ content: 'You do not have permission to execute this command.', ephemeral: true });
+        }
+
         const CreateOrderModal = new ModalBuilder()
 		    .setCustomId('CreateOrderModal')
 			.setTitle('Create New Order');

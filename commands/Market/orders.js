@@ -43,6 +43,10 @@ module.exports = {
     async execute(interaction) {
         await interaction.deferReply()
 
+        if (!interaction.member.roles.cache.some(role => role.id === '1180473978586931300')) {
+            return interaction.reply({ content: 'You do not have permission to execute this command.', ephemeral: true });
+        }
+
         const subcommands = interaction.options.getSubcommand()
 
         if (subcommands === "view") {
