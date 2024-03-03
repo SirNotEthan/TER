@@ -96,6 +96,9 @@ module.exports = {
 
                 const MarketLogChannel = interaction.client.channels.cache.get('1213166597905191033')
                 await MarketLogChannel.send({ embeds: [OrderConfirmedEmbed] })
+                interaction.client.users.fetch(`${usernameValue}`, false). then((user) => {
+                    user.send({ embeds: [OrderConfirmedEmbed] })
+                })
                 return interaction.reply({ embeds: [OrderConfirmedEmbed] })
             }
         }
