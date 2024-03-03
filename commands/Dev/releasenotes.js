@@ -27,7 +27,7 @@ module.exports = {
             .setColor('Blurple')
             .setDescription(message)
 
-            await interaction.reply({ embeds: [embed], ephemeral: true })
+            await interaction.reply({ embeds: [embed] })
         }
 
         async function updateNotes(update, version) {
