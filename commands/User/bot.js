@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js')
+const mongoose = require('mongoose')
 const fs = require('fs')
 
 function formatUptime(uptime) {
@@ -31,6 +32,13 @@ module.exports = {
         const uptime = interaction.client.uptime
         let version
 
+        let DBConnectionStatus
+        if (mongoose.connection.readyState === 1 ) {
+            DBConnectionStatus = "Connected"
+        } else if (mongoose.connection.readyState === 0 ) {
+            DBConnectionStatus = "Disconnected"
+        }
+
         const InformationEmbed = new EmbedBuilder()
         .setTitle('Information | The Realm Watcher')
         .setColor('Blurple')
@@ -39,7 +47,7 @@ module.exports = {
             { name: 'API Latency:', value: `${interaction.client.ws.ping}ms`, inline: true },
             { name: 'Uptime:', value: `${formatUptime(uptime)}`, inline: true },
             { name: 'Version:', value: `1.0.3`, inline: true },
-            { name: 'MongoDB:', value: 'Operational', inline: true },
+            { name: 'MongoDB:', value: `${DBConnectionStatus}`, inline: true },
             { name: 'Creator:', value: 'SirNotEthan', inline: true }
         )
         .setTimestamp()
